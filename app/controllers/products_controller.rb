@@ -47,7 +47,11 @@ class ProductsController < ApplicationController
     redirect_to "/"
   end
 
-
+  def search
+    search_term = params[:search]
+    @tacos = Product.where("name LIKE ?", "%#{search_term}%")
+    render :index
+  end
 
 
 end

@@ -28,7 +28,11 @@
   <a href="/products?sort=price&sort_order=desc">Sort by Price: Highest To Lowest</a>
   <a href="/products?discount=true">Discount Items</a>
   <a href="/products/random">Random Taco</a>
-
+  <%= form_tag "/search", method: :post do %>
+    <%= label_tag :search %>
+    <%= text_field_tag :search %>
+    <%= submit_tag "Search" %>
+  <% end %>
 <%= yield %>
 </div>
 </body>
