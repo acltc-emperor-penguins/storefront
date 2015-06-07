@@ -24,6 +24,8 @@
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><p><%= message %></p>
   </div>
   <% end %>
+  <a href="/products?sort=price&sort_order=asc">Sort by Price: Lowest To Highest</a>
+  <a href="/products?sort=price&sort_order=desc">Sort by Price: Highest To Lowest</a>
 <%= yield %>
 </div>
 </body>
