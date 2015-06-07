@@ -3,12 +3,10 @@ class ProductsController < ApplicationController
   def index
     @tacos = Product.all
     if params[:sort] && params[:sort_order]
-      # Product.order(price: :desc)
-      # Product.order(:price => :desc)
-      @tacos = @tacos.order(params[:sort] => params[:sort_order])
+      @tacos = Product.order(params[:sort] => params[:sort_order])
     end
     if params[:discount]
-      @tacos = @tacos.where("price < ?", 2)
+      @tacos = Product.where("price < ?", 2)
     end
   end
 

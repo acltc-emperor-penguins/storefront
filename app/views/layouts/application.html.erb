@@ -30,7 +30,7 @@
   <a href="/products/random">Random Taco</a>
   <%= form_tag "/search", method: :post do %>
     <%= label_tag :search %>
-    <%= text_field_tag :search %>
+    <%= text_field_tag :search, nil, placeholder: "Search" %>
     <%= submit_tag "Search" %>
   <% end %>
 <%= yield %>
