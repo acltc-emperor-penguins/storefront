@@ -47,7 +47,8 @@ class ProductsController < ApplicationController
 
   def search
     search_term = params[:search]
-    @tacos = Product.where("name LIKE ?", "%#{search_term}%")
+    @tacos = Product.where("name LIKE ? OR description LIKE ? OR image LIKE 
+      ?", "%#{search_term}%", "%#{search_term}%", "%#{search_term}%")
     render :index
   end
 
