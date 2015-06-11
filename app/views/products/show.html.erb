@@ -22,8 +22,7 @@
         <%= text_field_tag :quantity %>
       </div>
       <div>
-        <%= label_tag :product_id, "This number can be found at the end of your current URL" %>
-        <%= text_field_tag :product_id %>
+        <%= hidden_field_tag :product_id, @taco.id %>
       </div>
       <div>
         <%= submit_tag "Buy Now!" %>
