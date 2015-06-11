@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get "/" => 'products#index'
   get "/products" => 'products#index'
   get "/products/new" => 'products#new'
@@ -8,4 +9,7 @@ Rails.application.routes.draw do
   patch "/products/:id" => 'products#update'
   get "/products/:id" => 'products#show'
   post "/search" => 'products#search'
+
+  post "/orders" => 'orders#create'
+  get "/orders/:id" => 'orders#show'
 end
