@@ -42,7 +42,9 @@
               <%= submit_tag "Search" %></div>
             <% end %></li>
             <li class="divider"></li>
-            <li><a href="/products?category=pork">Pork</a></li>
+            <% Category.all.each do |category| %>
+              <li><a href="/products?category=<%= category.name %>"><%= category.name %></a></li>
+            <% end %>
           </ul>
         </li>
       </ul>
