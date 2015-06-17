@@ -16,7 +16,7 @@
   </section>
 
   <section>
-    <%= form_tag "/orders", method: :post do %>
+    <%= form_tag "/carted_products", method: :post do %>
       <div>
         <%= label_tag :quantity %>
         <%= text_field_tag :quantity %>
@@ -25,7 +25,7 @@
         <%= hidden_field_tag :product_id, @taco.id %>
       </div>
       <div>
-        <%= submit_tag "Buy Now!" %>
+        <%= submit_tag "Add To Cart" %>
       </div>
     <% end %>
   </section>
