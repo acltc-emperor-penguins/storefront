@@ -2,15 +2,15 @@
     <div class="row">    
       <div class="col-sm-9">
         <div class="taco_single">
-            <h2><%= @taco.name %></h2>
-            <p>Price: <%= @taco.price %></p>
-            <p>Brought to you by: <%= @taco.supplier.name %></p>
-            <img src="<%= @taco.image %>" alt="<%= @taco.name %>" class="img-responsive">
-            <p>Description: <%= @taco.description %></p>
-            <p>Rating: <span class="rating"><%= @taco.rating %></span></p>
+            <h2><%= @product.name %></h2>
+            <p>Price: <%= @product.price %></p>
+            <p>Brought to you by: <%= @product.supplier.name %></p>
+            <img src="<%= @product.image %>" alt="<%= @product.name %>" class="img-responsive">
+            <p>Description: <%= @product.description %></p>
+            <p>Rating: <span class="rating"><%= @product.rating %></span></p>
             <% if user_signed_in? && current_user.admin %>
-              <%= link_to "Edit", "/products/#{@taco.id}/edit", class: "btn btn-success" %>
-              <%= link_to "Delete", "/products/#{@taco.id}", {method: :delete, class: "btn btn-danger" }%>
+              <%= link_to "Edit", "/products/#{@product.id}/edit", class: "btn btn-success" %>
+              <%= link_to "Delete", "/products/#{@product.id}", {method: :delete, class: "btn btn-danger" }%>
             <% end %>
         </div>
       </div>
@@ -24,7 +24,7 @@
         <%= text_field_tag :quantity %>
       </div>
       <div>
-        <%= hidden_field_tag :product_id, @taco.id %>
+        <%= hidden_field_tag :product_id, @product.id %>
       </div>
       <div>
         <%= submit_tag "Add To Cart" %>

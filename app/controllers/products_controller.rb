@@ -17,9 +17,9 @@ class ProductsController < ApplicationController
   def show
     if params[:id] == "random"
       tacos = Product.all
-      @taco = tacos.sample
+      @product = tacos.sample
     else
-      @taco = Product.find_by(id: params[:id])
+      @product = Product.find_by(id: params[:id])
     end
   end
 
