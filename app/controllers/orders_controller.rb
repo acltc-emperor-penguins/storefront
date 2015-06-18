@@ -1,8 +1,11 @@
 class OrdersController < ApplicationController
-  
+  before_action :authenticate_user!  
   
   def show
     @order = Order.find_by(id: params[:id])
+    if @order.user_id != current_user.id
+      redirect_to "/"
+    end
   end
 
   def create

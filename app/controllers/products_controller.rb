@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_admin!, except: [:index, :show, :search]
 
   def index
     @tacos = Product.all
@@ -24,6 +25,7 @@ class ProductsController < ApplicationController
 
   def new
   end
+
   def create
     @taco = Product.create(id: params[:id], name: params[:name], price: params[:price], image: params[:image], description: params[:description], rating: params[:rating])
     flash[:success] = "Taco made!"
@@ -54,6 +56,8 @@ class ProductsController < ApplicationController
       ?", "%#{search_term}%", "%#{search_term}%", "%#{search_term}%")
     render :index
   end
+
+  
 
 
 end
