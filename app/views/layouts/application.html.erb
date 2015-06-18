@@ -45,7 +45,7 @@
             <% Category.all.each do |category| %>
               <li><a href="/products?category=<%= category.name %>"><%= category.name %></a></li>
             <% end %>
-            <li><span class="glyphicon glyphicon-shopping-cart"></span><%= link_to "Shopping Cart", "/carted_products" %></li>
+            <li><span class="glyphicon glyphicon-shopping-cart"></span><%= link_to "Shopping Cart (#{@cart_count})", "/carted_products" %></li>
           </ul>
         </li>
       </ul>
