@@ -19,6 +19,8 @@ class OrdersController < ApplicationController
 
     order = Order.create(user_id: current_user.id, subtotal: subtotal, tax: tax, total: total)
 
+    @carted_products.update_all(status: "purchased", order_id: order.id)
+
     redirect_to "/orders/#{order.id}"
   end
 end
