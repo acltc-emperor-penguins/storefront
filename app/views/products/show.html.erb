@@ -1,3 +1,15 @@
+  <% if @carted_product && @carted_product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@carted_product.errors.count, "error") %> prohibited this article from being saved:</h2>
+   
+      <ul>
+      <% @carted_product.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <section>
     <div class="row">    
       <div class="col-sm-9">
