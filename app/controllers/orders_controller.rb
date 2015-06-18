@@ -11,7 +11,7 @@ class OrdersController < ApplicationController
     #########TODO: move this stuff to models
     subtotal = 0
     @carted_products.each do |carted_product|
-      subtotal += carted_product.quantity * carted_product.product.price
+      subtotal += carted_product.subtotal
     end
 
     tax = subtotal * SALES_TAX
