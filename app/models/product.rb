@@ -5,6 +5,10 @@ class Product < ActiveRecord::Base
   has_many :orders, through: :carted_products
   belongs_to :supplier
 
+  validates :name, presence: true
+  validates :name, uniqueness: true
+  validates :description, uniqueness: true
+
   SALES_TAX = 0.09
 
   def tax
