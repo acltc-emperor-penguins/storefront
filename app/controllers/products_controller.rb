@@ -38,14 +38,17 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @taco = Product.find_by(id: params[:id])
+    @product = Product.find_by(id: params[:id])
   end
 
   def update
-    @taco = Product.find_by(id: params[:id])
-    @taco.update(id: params[:id], name: params[:name], price: params[:price], image: params[:image], description: params[:description], rating: params[:rating])
-    flash[:success] = "This taco has been updated!"
-    redirect_to "/products/#{@taco.id}"
+    @product = Product.find_by(id: params[:id])
+    if @product.update(id: params[:id], name: params[:name], price: params[:price], image: params[:image], description: params[:description], rating: params[:rating])
+      flash[:success] = "This taco has been updated!"
+      redirect_to "/products/#{@product.id}"
+    else
+      render :edit
+    end
   end
 
   def destroy
