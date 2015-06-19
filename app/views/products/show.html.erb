@@ -33,7 +33,7 @@
     <%= form_tag "/carted_products", method: :post do %>
       <div>
         <%= label_tag :quantity %>
-        <%= text_field_tag :quantity %>
+        <%= text_field_tag :quantity, @carted_product ? @carted_product.quantity : nil %>
       </div>
       <div>
         <%= hidden_field_tag :product_id, @product.id %>

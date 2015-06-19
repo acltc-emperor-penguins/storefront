@@ -24,12 +24,17 @@ class ProductsController < ApplicationController
   end
 
   def new
+    @product = Product.new
   end
 
   def create
-    @taco = Product.create(id: params[:id], name: params[:name], price: params[:price], image: params[:image], description: params[:description], rating: params[:rating])
-    flash[:success] = "Taco made!"
-    redirect_to "/products/#{@taco.id}"
+    @product = Product.new(id: params[:id], name: params[:name], price: params[:price], image: params[:image], description: params[:description], rating: params[:rating])
+    if @product.save
+      flash[:success] = "Taco made!"
+      redirect_to "/products/#{@product.id}"
+    else
+      render :new
+    end
   end
 
   def edit

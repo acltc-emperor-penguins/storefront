@@ -7,7 +7,7 @@ class Product < ActiveRecord::Base
 
   validates :name, presence: true
   validates :name, uniqueness: true
-  validates :description, uniqueness: true
+  validates :description, presence: true
 
   SALES_TAX = 0.09
 
