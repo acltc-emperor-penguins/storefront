@@ -13,6 +13,7 @@ class CartedProductsController < ApplicationController
     @carted_product = CartedProduct.new(user_id: current_user.id, product_id: params[:product_id], quantity: params[:quantity], status: "carted")
     @product = Product.find_by(id: params[:product_id])
     if @carted_product.save
+      session[:cart_count] = nil
       redirect_to "/carted_products"
     else
       render "/products/show"
@@ -23,6 +24,7 @@ class CartedProductsController < ApplicationController
     carted_product = CartedProduct.find_by(id: params[:id])
     carted_product.update(status: "removed")
     flash[:success] = "Product removed"
+    session[:cart_count] = nil
     redirect_to "/carted_products"
   end
 end
